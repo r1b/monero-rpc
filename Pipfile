@@ -13,3 +13,4 @@ requests-futures = "*"
 [dev-packages]
 
 pytest = "*"
+vcrpy = "*"

@@ -6,7 +6,7 @@ from requests_futures.sessions import FuturesSession
 def parse_body(session, response):
     data = response.json()
     if "error" in data:
-        raise Exception(data["error"])
+        raise Exception(data["error"]) # FIXME: Real error
     response.data = data["result"]
 
 
