@@ -6,7 +6,7 @@ from requests_futures.sessions import FuturesSession
 def parse_body(session, response):
     data = response.json()
     if "error" in data:
-        raise Exception(data["error"]) # FIXME: Real error
+        raise Exception(data["error"])  # FIXME: Real error
     response.data = data["result"]
 
 
@@ -18,7 +18,7 @@ class XmrClient(object):
             port=18081,
             path='/json_rpc'
     ):
-        self.session = FuturesSession() # FIXME: Set concurrency based on cpu
+        self.session = FuturesSession()  # FIXME: Set concurrency based on cpu
         self.url = urlunparse((
             scheme,
             "%s:%s" % (host, port),
@@ -30,7 +30,7 @@ class XmrClient(object):
     def headers():
         return {
             "content-type": "application/json",
-            "user-agent": "monero-rpc/0.1" # FIXME Read version from setup.py
+            "user-agent": "monero-rpc/0.1"  # FIXME Read version from setup.py
         }
 
     def payload(self, method, params=[]):
@@ -46,8 +46,8 @@ class XmrClient(object):
 
     def getblockcount(self):
         return self.session.post(
-                self.url,
-                json=self.payload("getblockcount"),
-                headers=XmrClient.headers(),
-                background_callback=parse_body
+            self.url,
+            json=self.payload("getblockcount"),
+            headers=XmrClient.headers(),
+            background_callback=parse_body
         )
