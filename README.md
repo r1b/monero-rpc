@@ -1,9 +1,10 @@
-# monero-rpc
+# pyxmr
 
-Implements the XMR Daemon [1] and Wallet [2] RPC interfaces. Uses
-`requests-futures` to provide an async interface.
+Provides an async interface to the Monero RPC, HTTP & CLI services.
 
 ## References
 
-* [1] https://getmonero.org/resources/developer-guides/daemon-rpc.html
-* [2] https://getmonero.org/resources/developer-guides/wallet-rpc.html
+* https://getmonero.org/resources/developer-guides/daemon-rpc.html
+* https://getmonero.org/resources/developer-guides/wallet-rpc.html
+* https://github.com/monero-project/monero/blob/v0.11.1.0/src/rpc/core_rpc_server_error_codes.h
+* https://github.com/monero-project/monero/blob/v0.11.1.0/src/wallet/wallet_rpc_server_error_codes.h

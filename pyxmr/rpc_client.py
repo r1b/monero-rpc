@@ -10,7 +10,7 @@ def parse_body(session, response):
     response.data = data["result"]
 
 
-class XmrClient(object):
+class RpcClient(object):
     def __init__(
             self,
             scheme="http",
@@ -26,6 +26,8 @@ class XmrClient(object):
             '', '', ''
         ))
 
+        # TODO: Generate method stubs
+
     @staticmethod
     def headers():
         return {
@@ -38,16 +40,15 @@ class XmrClient(object):
             "id": str(uuid4()),
             "jsonrpc": "2.0",
             "method": method,
-
         }
         if len(params) > 0:
             payload["params"] = params
         return payload
 
-    def getblockcount(self):
+    def request(self, method, params=[]):
         return self.session.post(
             self.url,
-            json=self.payload("getblockcount"),
+            json=self.payload(method, params),
             headers=XmrClient.headers(),
             background_callback=parse_body
         )

@@ -1,12 +1,12 @@
 from setuptools import setup
 
 setup(
-    name='monero-rpc',
+    name='pyxmr',
     version='0.1',
-    packages=['monero_rpc'],
+    packages=['pyxmr'],
     include_package_data=True,
     license='BSD License',
-    description='Implements the XMR Daemon and Wallet RPC interfaces with requests-futures',
+    description='Provides an async interface to the Monero RPC, HTTP & CLI',
     url='http://r1b.solutions/',
     author='Robert C Jensen',
     author_email='sysop@r1b.solutions',
